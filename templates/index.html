@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
+    <title>Image to Text Converter</title>
+    <!-- <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <div class="right">
+      hii
+    </div>
+    <div class="left">
+       <div class="top">
+        <h1 style="text-align: center;">Upload an Image to Extract Text</h1>
+       </div>
+       <div class="middle">
+        <div class="middle-in">
+           {% if extracted_text %}
+             <img src={{ image_url }} alt="Uploaded Image">
+             <p>Extracted Text:{{ extracted_text }}</p>
+           {% endif %}  
+        </div>
+        
+     </div>
+     <div class="down-box">
+        <div class="down">
+            <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" placeholder="Choode an Image" >
+                    <button type="submit" value="Upload" ><span class="material-symbols-outlined">
+                        upload
+                    </span></button>
+            </form> 
+       </div>
+       </div> 
+    </div>
+</body>
+</html>
